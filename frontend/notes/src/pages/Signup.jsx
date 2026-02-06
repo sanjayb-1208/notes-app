@@ -2,10 +2,10 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AppContext } from '../context/AppContext';
+import { AppContent } from '../context/AppContext';
 
 const Signup = () => {
-    const {backendUrl} = useContext(AppContext);
+    const {backendUrl} = useContext(AppContent);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -99,6 +99,7 @@ const Signup = () => {
 
 
 export default Signup;
+
 
 
 
