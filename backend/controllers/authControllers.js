@@ -57,12 +57,13 @@ export const login = async (req, res) => {
         expiresIn: '7d',
         });
 
-        res.cookie('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-        });
+        // In your Auth Controller (Backend)
+res.cookie('token', token, {
+    httpOnly: true,
+    secure: true,        // Must be true for HTTPS (Render uses HTTPS)
+    sameSite: 'none',    // Critical for cross-site cookies
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+});
 
         return res.json({ success: true, message: "Logged in successfully" });
     } catch (error) {
@@ -89,4 +90,5 @@ export const verifyOtp = async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
+
 };
