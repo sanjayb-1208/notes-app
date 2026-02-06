@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {AppContext}
+import { AppContent } from '../context/AppContext';
+
 const Signup = () => {
     const {backendUrl} = useContext(AppContext)
     const [name, setName] = useState('');
@@ -98,3 +99,4 @@ const Signup = () => {
 
 
 export default Signup;
+
