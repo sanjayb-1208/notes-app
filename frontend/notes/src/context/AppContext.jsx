@@ -8,7 +8,7 @@ export const AppContextProvider = (props) => {
 
     axios.defaults.withCredentials = true;
 
-    const backendUrl = "http://localhost:5000";
+    const backendUrl = "https://notes-app-backend-z130.onrender.com";
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [notes, setNotes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -55,4 +55,5 @@ export const AppContextProvider = (props) => {
             {props.children}
         </AppContent.Provider>
     );
+
 };
