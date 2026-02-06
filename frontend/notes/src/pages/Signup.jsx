@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { AppContent } from '../context/AppContext';
 
 const Signup = () => {
-    const {backendUrl} = useContext(AppContext)
+    const {backendUrl} = useContext(AppContext;)
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -99,4 +99,5 @@ const Signup = () => {
 
 
 export default Signup;
+
 
