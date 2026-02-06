@@ -8,7 +8,11 @@ import cookieParser from 'cookie-parser';
 import userAuth from './middlewares/userAuthMiddleware.js';
 import cors from 'cors';
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = [
+    'http://localhost:5173', // For local development
+    'https://notes-app-frontend-notes.onrender.com' // Your Render frontend
+];
+
 
 
 
@@ -27,8 +31,9 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true // Crucial for JWT cookies
+    credentials: true 
 }));
+
 app.use("/api/auth",authRoutes);
 app.use("/api/notes",notesRoute);
 
@@ -42,4 +47,5 @@ app.get("/", (req, res)=>{
 
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
