@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
     const { username, email, password } = req.body;
+    console.log(req.body);
 
     if (!username || !email || !password) {
         return res.json({ success: false, message: 'Missing Details' });
@@ -92,6 +93,7 @@ export const verifyOtp = async (req, res) => {
     }
 
 };
+
 
 
 
