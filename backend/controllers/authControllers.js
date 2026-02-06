@@ -75,7 +75,7 @@ export const logout = async (req, res) => {
     try {
         res.clearCookie('token', {
             httpOnly: true,
-            secure: True,
+            secure: true,
             sameSite: 'none',
         });
 
@@ -92,5 +92,6 @@ export const verifyOtp = async (req, res) => {
     }
 
 };
+
 
 
