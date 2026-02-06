@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import {AppContext}
 const Signup = () => {
+    const {backendUrl} = useContext(AppContext)
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             axios.defaults.withCredentials = true;
-            const { data } = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+            const { data } = await axios.post('${backendUrl}/api/auth/register', { name, email, password });
             
             if (data.success) {
                 toast.success(data.message);
@@ -94,5 +95,6 @@ const Signup = () => {
         </div>
     );
 };
+
 
 export default Signup;
